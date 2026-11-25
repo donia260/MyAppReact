@@ -31,6 +31,23 @@ l'étape docker run de MongoDB a rencontré une erreur de stockage Docker (syst�
 # docker compose:
 j'ai créer un fichier 'docker-compose.yml'
 apres j'ai lancé le la commande docker compose up --build
+apres j'ai vérifier par l'instruction ' docker ps' que les conteneurs `client`, `server` et `mongodb` sont `Up`
+j'ai vérifié aussi 'http://localhost:3000' et 'http://localhost:9000/api/health' sont fonctionnel .*
+# partie git
+j'ai créer un nouveau repository nommé MyAppReact 
+j'ai relié le projet avec mon depot crée et j'ai le poussé 
+# jenkins 
+j'ai créer un jenkinsfile qui contient :
+- Checkout : récupération du code depuis GitHub.
+- Build images : 'docker compose build' construit les images du serveur et du client.
+- Run: 'docker compose down' puis 'docker compose up -d' lancent les 3 conteneurs.
+- Test: 'curl -f' vérifie que le serveur ('http://localhost:9000/api/health') et le client ('http://localhost:3000') répondent.
+
+ puis je l'ai pousser dans le git avec cette commande :
+git add Jenkinsfile
+git commit -m "Ajout du Jenkinsfile"
+git push
+
 
 
 
